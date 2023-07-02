@@ -1,14 +1,6 @@
 const seatBookingModel = require("../model/seatBookingModel");
 const seatModel = require("../model/seatModel")
 const seatPrice = require("../seatPrice")
-// const bookedSeatModel = require("../model/bookedSeatModel")
-
-// const express = require("express");
-// const router = express.Router()
-// const Booking = require('../model/seatBookingModel')
-// const Seats = require('../model/seatModel.js')
-// const seatPrice = require('../seatPrice.js')
-// var price;
 
 const isValid = function (value) {
     if (typeof value === "undefined" || value === null) return false;
@@ -20,38 +12,7 @@ const isValid = function (value) {
     return Object.keys(body).length > 0;
   };
 
-//   router.post("/booking", async(req, res) => {
-//     const seat = await Seats.findOne({seat_identifier:req.body.seat_identifier})
-//     console.log(seat.seat_class)
 
-//     /* Check if seat is already booked or not ? */
-//     if (!seat.is_booked) {        
-
-//         /* Percentage of seat booked. */
-//         price = await seatPrice(seat, req.body.seat_identifier)
-
-//         /* New booking object */
-//         const booking = new Booking({
-//             seat_id: seat,
-//             name: req.body.name,
-//             phone: req.body.phone
-//         })
-
-//         /* Save booking or  */
-//         try{
-//             const a1 = await booking.save()
-//             await Seats.updateOne({seat_identifier:req.body.seat_identifier}, {is_booked: true})
-//             res.json({"booking_id":a1._id, "price":price})
-//         }
-//         catch(err){
-//             console.log(err)
-//             res.send(err)
-//         }
-//     }
-//     else{
-//         res.send({"message":"ticket already booked"})
-//     }
-// })
 
   const createBooking = async function(req, res){
     try{
